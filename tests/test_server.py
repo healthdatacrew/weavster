@@ -17,3 +17,13 @@ def test_hello(client):
 
     assert resp.status_code == 200
     assert resp.json() == {"message": "Hello World"}
+
+
+def test_dashboard(client):
+    """
+    Dashboard URL returns a welcome message.
+    """
+    resp = client.get("/")
+
+    assert resp.status_code == 200
+    assert resp.json() == {"message": "Welcome to the Weavster Dashboard!"}

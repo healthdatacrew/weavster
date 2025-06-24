@@ -46,10 +46,6 @@ def init(
             typer.echo(f"❌ Directory '{project_path}' already exists.")
             typer.echo("Please choose a different project name or remove the existing directory.")
             raise typer.Exit(code=1) from FileExistsError
-    else:
-        # Use the existing directory
-        project_path = directory.resolve()
-        name = project_path.name
 
     # Create the project structure
     # Create base directories
@@ -72,7 +68,7 @@ def init(
 
     cli_utils.create_file(project_path / ".gitignore", "compiled/\nlogs/\n")
 
-    typer.secho(f"\n✅ Initialized Weavster project: {project_name}", fg=typer.colors.GREEN)
+    typer.secho(f"\n✅ Initialized Weavster project: {name}", fg=typer.colors.GREEN)
     typer.echo("Next steps:\n- Edit your config files\n- Run `weavster build`\n")
 
 

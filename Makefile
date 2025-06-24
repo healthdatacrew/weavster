@@ -18,7 +18,7 @@ check: ## Run code quality tools.
 .PHONY: test
 test: ## Test the code with pytest
 	@echo "🚀 Testing code: Running pytest"
-	@uv run python -m pytest --cov --cov-config=pyproject.toml --cov-report=xml
+	@uv run python -m pytest --cov --cov-config=pyproject.toml --cov-report=xml --cov-report=term-missing
 
 .PHONY: build
 build: clean-build ## Build wheel file
@@ -30,9 +30,9 @@ build-ui: ## Build the UI assets
 	@echo "🚀 Building UI assets"
 	@cd ui && \
 	 echo "   - Installing dependencies..." && \
-	 uv run pnpm install && \
+	 pnpm install && \
 	 echo "   - Running build..." && \
-	 uv run pnpm run build && \
+	 pnpm run build && \
 	 echo "   - Copying assets from ui/build/client/assets to root..." && \
 	 cp -r build/client/assets ../src/weavster/assets
 
