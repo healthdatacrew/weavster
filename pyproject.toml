@@ -17,12 +17,15 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["fastapi>=0.115.12", "granian>=2.2.4"]
+dependencies = ["fastapi>=0.115.12", "granian>=2.2.4", "typer>=0.15.4"]
 
 [project.urls]
 Homepage = "https://healthdatacrew.github.io/weavster/"
 Repository = "https://github.com/healthdatacrew/weavster"
 Documentation = "https://healthdatacrew.github.io/weavster/"
+
+[project.scripts]
+weavster = "weavster.cli:app"
 
 [dependency-groups]
 dev = [
